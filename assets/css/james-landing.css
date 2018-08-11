@@ -1,10 +1,16 @@
+html {
+    font-size: 18pt;
+}
 
 #content-body {
     min-width: 320px;
-    min-height: 100vh;
+    min-height: 80vh;
     line-height: 1;
     word-wrap: break-word;
     overflow: visible;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 #wrapper {
@@ -18,6 +24,7 @@
     overflow: hidden;
     padding: 2.25rem 0px;
 }
+
 #main {
     display: flex;
     position: relative;
@@ -49,6 +56,98 @@
     max-width: 100%;
 }
 
+#component::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 1.75em;
+    font-size: 0.6em;
+}
+
+#columns2 {
+    display: flex;
+    width: 100%;
+    min-height: 23rem;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-color: rgb(235, 235, 235);
+    border-top: 0;
+    border-bottom: 0;
+}
+.container-inner {
+    width: 100%;
+    max-width: 57rem;
+    display: inline-block;
+    padding: 5.5rem 1.5rem;
+    vertical-align: top;
+}
+.component-wrapper {
+    position: relative;
+}
+.component-wrapper.is-first:before {
+    height: 0.5rem !important;
+    min-height: 0.5rem !important
+}
+.component-wrapper.is-last:after {
+    height: 0.5rem !important;
+    min-height: 0.5rem !important
+}
+.component-wrapper::before {
+    height: 0.5rem !important;
+    min-height: 0.5rem !important;
+    bottom: 100%;
+}
+.component-wrapper::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+.component-wrapper.is-first {
+    margin-top: 0
+}
+
+.component-wrapper.is-last {
+    margin-bottom: 0
+}
+
+.component-wrapper>.component {
+    position: relative;
+    width: auto;
+    max-width: 100%
+}
+.component-wrapper>.component:after {
+    pointer-events: none;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit
+}
+
+.component::after {
+    pointer-events: none;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
 #bg{
     position: fixed;
     top: 0px;
@@ -73,6 +172,13 @@
     background-image: linear-gradient(40deg, rgb(209, 96, 96) 0%, rgb(93, 207, 166) 100%);
 }
 
+.strong-text {
+    font-weight: bolder;
+}
+.em {
+    font-style: italic;
+}
+
 #text08 {
     text-transform: uppercase;
     color: rgb(255, 255, 255);
@@ -86,8 +192,59 @@
 
 #text01 {
     color: rgb(255, 255, 255);
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 1.25em;
     line-height: 1.5;
-    font-weight: 200;
+    font-weight: 100;
+}
+
+
+
+
+
+
+@media screen and (max-width: 1680px) {
+    html {
+        font-size: 15pt;
+    }
+    #text08 {
+        font-size:3.5em;
+    }
+    
+}
+@media screen and (max-width: 1280px) {
+    html {
+        font-size: 13pt;
+    }
+
+    #text08 {
+        font-size:2em;
+    }
+    #text01 {
+        font-size:1em
+    }
+    
+}
+@media screen and (max-width: 980px) {
+    html {
+        font-size: 11pt;
+    }
+    #text08 {
+        font-size:2em;
+    }
+    #text01 {
+        font-size:1em
+    }
+    #columns2 {
+        border:none;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    html {
+        font-size: 11pt;
+    }
+    #text08 {
+        font-size: 2em;
+    }
 }
